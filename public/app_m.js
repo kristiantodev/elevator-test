@@ -8,15 +8,6 @@ let allPeopleDelivered = false;
 const startTime = new Date();
 let finishTime;
 
-function generateRandomPerson() {
-    const from = (Math.floor(Math.random() * totalFloors));
-    let to = (Math.floor(Math.random() * totalFloors));
-    while (to === from) {
-        to = Math.floor(Math.random() * totalFloors);
-    }
-    peopleQueue.push(new Person(from, to));
-}
-
 function assignPersonToElevator() {
     if (allPeopleDelivered) return;
 
@@ -29,17 +20,6 @@ function assignPersonToElevator() {
     if (availableElevator) {
         availableElevator.targetFloor = person.from;
         moveElevator(availableElevator, person);
-    }
-
-    updateDeliverCount(1); 
-    totalDelivered++;
-
-    if (totalDelivered === 100) {
-        returnAllElevatorsToFirstFloor();
-        allPeopleDelivered = true;
-        finishTime = new Date();
-        document.getElementById("finishTime").innerHTML = finishTime.toLocaleString();
-        document.getElementById("gapTime").innerHTML = getDateTimeSince(finishTime, startTime);
     }
 }
 
@@ -67,8 +47,14 @@ function moveToDestination(elevator, person) {
 
         if (elevator.state === 0) {
             clearInterval(elevatorMoveInterval);
+            updateDeliverCount(1); 
+            totalDelivered++;
             if (totalDelivered === 100) {
                 returnAllElevatorsToFirstFloor();
+                allPeopleDelivered = true;
+                finishTime = new Date();
+                document.getElementById("finishTime").innerHTML = finishTime.toLocaleString();
+                document.getElementById("gapTime").innerHTML = getDateTimeSince(finishTime, startTime);
             } else {
                 returnElevatorToFirstFloor(elevator);
             }
@@ -115,8 +101,9 @@ function updateDeliverCount(count) {
 }
 
 function simulate() {
-    for (let i = 0; i < 100; i++) {
-        generateRandomPerson();
+  console.log("Total Mans", allmans.length)
+    for (let i = 0; i < allmans.length; i++) {
+        peopleQueue.push(new Person(allmans[i].from, allmans[i].to));
     }
     setInterval(assignPersonToElevator, 1800);
 }

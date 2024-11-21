@@ -1,4 +1,4 @@
-const mans = [{"from":26,"to":2},
+const allmans = [{"from":26,"to":2},
 {"from":28,"to":35},
 {"from":10,"to":40},
 {"from":11,"to":48},
@@ -997,4 +997,4 @@ const mans = [{"from":26,"to":2},
 {"from":20,"to":11},
 {"from":47,"to":11},
 {"from":44,"to":20},
-{"from":3,"to":3}]
+{"from":3,"to":3}];
