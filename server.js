@@ -79,11 +79,8 @@ app.use(express.static('public'));
 
 io.on('connection', (socket) => {
   console.log('New client connected');
-  
-  // When a client requests a floor, delegate the request to the first elevator
   socket.on('requestFloor', (floor) => {
-    // Choose an elevator (in this case, we choose the first one, but this can be improved to find the closest one)
-    elevators[0].requestFloor(floor);
+       elevators[0].requestFloor(floor);
   });
 
   socket.on('disconnect', () => {

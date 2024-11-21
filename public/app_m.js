@@ -205,7 +205,7 @@ function simulate() {
   for (let i = 0; i < 100; i++) {
     generateRandomPerson();
   }
-  setInterval(assignPersonToElevator, 2000);
+  setInterval(assignPersonToElevator, 1800);
 }
 
 simulate();
