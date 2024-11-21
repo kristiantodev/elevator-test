@@ -9,7 +9,6 @@ const elevatorCount = 3;
 
 const startTime = new Date();
 let finishTime;
-document.getElementById("startTime").innerHTML = startTime.toLocaleString();
 
 class Elevator {
   constructor(idx) {
@@ -210,3 +209,4 @@ function simulate() {
 }
 
 simulate();
+document.getElementById("startTime").innerHTML = startTime.toLocaleString();
