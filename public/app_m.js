@@ -105,7 +105,7 @@ function simulate() {
     for (let i = 0; i < allmans.length; i++) {
         peopleQueue.push(new Person(allmans[i].from, allmans[i].to));
     }
-    setInterval(assignPersonToElevator, 1000);
+    setInterval(assignPersonToElevator, 5000);
 }
 
 simulate();
