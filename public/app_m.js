@@ -103,7 +103,7 @@ function updateDeliverCount(count) {
 function simulate() {
   console.log("Total Mans", allmans.length)
     for (let i = 0; i < allmans.length; i++) {
-        peopleQueue.push(new Person(allmans[i].from, allmans[i].to));
+        peopleQueue.push(new Person(allmans[i].from - 1, allmans[i].to - 1));
     }
     setInterval(assignPersonToElevator, 5000);
 }
